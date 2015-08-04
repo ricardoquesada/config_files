@@ -1,0 +1,6 @@
+[submodule "vim/.vim/bundle/vim-asm_ca65"]
+	path = vim/.vim/bundle/vim-asm_ca65
+	url = https://github.com/maxbane/vim-asm_ca65.git
+[submodule "vim/.vim/bundle/vim-sensible"]
+	path = vim/.vim/bundle/vim-sensible
+	url = https://github.com/tpope/vim-sensible.git
