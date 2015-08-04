@@ -1,8 +1,0 @@
-let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =6
-let g:netrw_dirhist_1='/Users/rquesada/progs/cocos2d-iphone/templates/Xcode4_templates/base.xctemplate'
-let g:netrw_dirhist_2='/Users/rquesada/progs/cocos2d-iphone/templates/Xcode4_templates/base_ios.xctemplate'
-let g:netrw_dirhist_3='/Users/rquesada/progs/cocos2d-iphone/templates/Xcode4_templates/lib_cocos2d.xctemplate'
-let g:netrw_dirhist_4='/Users/rquesada/progs/cocos2d-iphone/external/Box2d/Testbed/Framework'
-let g:netrw_dirhist_5='/Users/rquesada/tmp/t6b/t6b.xcodeproj'
-let g:netrw_dirhist_6='/Users/rquesada/progs/cocos2d-iphone/.git'
