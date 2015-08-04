@@ -1,91 +1,250 @@
-set nocompatible                        " Don't be compatible with vi
-set background=dark	                    " I use dark background
-set tabstop=4                           " Tab stop of 4
-set shiftwidth=4                        " Shift width of 4 spaces (used on auto indent)
-set history=100	                        " 50 Lines of history
-set expandtab                           " Use spaces, not tabs.
-set softtabstop=4                       " Treat 4 spaces as a tab for bs/del operations
-set autoindent                          " Auto Indent
-set ignorecase                          " Make searches case insensitive
-set smartcase                           " Make search case sensitive if it has caps
-set incsearch                           " Incremental search (shows best match so far)
-set hlsearch                            " Highlight matches to the search 
-set backspace=indent,eol,start          " Backspace over anything! (Super backspace!)
-set ruler                               " Show the line number and columnn the cursor is on
-set number                              " Show line numbering
-set wildmenu                            " Autocomplete features in the status bar
-"set foldmarker={,}                      " Fold C style code
-"set foldmethod=marker                   " Fold on the marker 
-filetype plugin on                      " Enable filetype plugins
-syntax on                               " Turn on syntax highlighting
-"colorscheme tango                       " Use tango colors
-colorscheme solarized                   " Use solarized colors
-" we don't want to edit these type of files
-set wildignore=*.o,*.obj,*.bak,*.exe,*.pyc,*.swp
+" .vimrc
+" Written by Matt Roper <matt@mattrope.com>
+"
+" Feel free to use any or all of this file in your own vimrc file.
 
-" visual shifting (builtin-repeat)
-if &diff
-   vnoremap < :diffget<CR>
-   vnoremap > :diffput<CR>
+
+" Don't use vi compatibility; I want all the new features in Vim
+set nocompatible
+
+" Version 6.0-specific stuff
+if version >= 600
+    syntax enable
+    filetype on
+    filetype plugin on
+    filetype indent on
 else
-   vnoremap < <gv
-   vnoremap > >gv 
+    syntax on
 endif
 
-" work more logically with wrapped lines
-noremap j gj
-noremap k gk
+" Low priority filename suffixes for filename completion {{{
+set suffixes-=.h        " Don't give .h low priority
+set suffixes+=.aux
+set suffixes+=.log
+set wildignore+=*.dvi
+set suffixes+=.bak
+set suffixes+=~
+set suffixes+=.swp
+set suffixes+=.o
+set suffixes+=.class
+" }}}
 
-" bind ctrl+space for omnicompletion
-inoremap <Nul> <C-x><C-o>
-" tab labels show the filename without path(tail)
-set guitablabel=%N/\ %t\ %M
-" tab navigation (next tab) with alt left / alt right
-map <silent><A-Right> :tabnext<CR>
-map <silent><A-Left> :tabprevious<CR>
+set showfulltag         " Get function usage help automatically
+set showcmd             " Show current vim command in status bar
+set showmatch           " Show matching parentheses/brackets
+set showmode            " Show current vim mode
 
-" Toggle the tag list bar
-nmap <F4> :TlistToggle<CR>
+set background=dark
 
-" smart indenting for python
-autocmd BufRead *.py set smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class
+set bs=2                " allow backspacing over everything in insert mode
+set viminfo='20,\"50    " read/write a .viminfo file, don't store more
+                        " than 50 lines of registers
+set history=50          " keep 50 lines of command line history
+set ruler               " show the cursor position all the time
+set selection=exclusive " don't include character under cursor in selection
+set incsearch           " incremental (emacs-style) search
+set vb t_vb=            " kill the beeps! (visible bell)
+set wildmenu            " use a scrollable menu for filename completions
+"set ignorecase          " case-insensitive searching
 
-" allows us to run :make and get syntax errors for our python scripts
-autocmd BufRead *.py set makeprg=python\ -c\ \"import\ py_compile,sys;\ sys.stderr=sys.stdout;\ py_compile.compile(r'%')\"
-autocmd BufRead *.py set efm=%C\ %.%#,%A\ \ File\ \"%f\"\\,\ line\ %l%.%#,%Z%[%^\ ]%\\@=%m
+" Indentation / tab replacement stuff
+"set shiftwidth=4        " > and < move block by 4 spaces in visual mode
+"set sts=4
+"set et                  " expand tabs to spaces
+set autoindent           " always set autoindenting on
 
-" code completion
-autocmd FileType python set omnifunc=pythoncomplete#Complete
-autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
-autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
-autocmd FileType css set omnifunc=csscomplete#CompleteCSS
-autocmd FileType xml set omnifunc=xmlcomplete#CompleteTags
-autocmd FileType c set omnifunc=ccomplete#Complete
+" Move text, but keep highlight
+vnoremap > ><CR>gv
+vnoremap < <<CR>gv
 
-" for snippets
-if &ft == 'python'
-    set ft=python.django_tempate.django_model
+" Color Scheme (only if GUI running) {{{
+if has("gui_running")
+    colorscheme evening
 endif
+" }}}
 
-" set up tags
-set tags=tags;/
-set tags+=$HOME/.vim/tags/python.ctags
+" Key mappings {{{
 
-" move to the current files directory
-autocmd BufEnter * lcd %:p:h 
+" Allow the . to execute once for each line in visual selection
+vnoremap . :normal .<CR>
 
-"Solarized F5 change between light & dark
-function! ToggleBackground()
-    if (g:solarized_style=="dark")
-        let g:solarized_style="light"
-        colorscheme solarized
+" Make ' function behave like ` usually does and then change ` to replay
+" recorded macro a (as if @a was typed).  In visual mode, ` (which now acts
+" like @a) should function on all selected lines.
+noremap ' `
+nnoremap ` @a
+vnoremap ` :normal @a<CR>
+
+" Make tab perform keyword/tag completion if we're not following whitespace
+inoremap <tab> <c-r>=InsertTabWrapper()<cr>
+
+" Make F7 spellcheck the buffer
+noremap <F7> <Esc>:call IspellCheck()<CR><Esc>
+
+" Programming Keys:
+"   F9  = Make
+"   F10 = Next Error
+"   F11 = Prev Error
+inoremap <F9> <Esc>:make<CR>
+inoremap <F10> <Esc>:cnext<CR>
+inoremap <F11> <Esc>:cprev<CR>
+noremap <F9> <Esc>:make<CR>
+noremap <F10> <Esc>:cnext<CR>
+noremap <F11> <Esc>:cprev<CR>
+
+" Buffer Switching:
+"   F2 = next buffer
+"   F3 = previous buffer
+"   F4 = kill buffer
+inoremap <F2> <Esc>:bn<CR>
+inoremap <F3> <Esc>:bp<CR>
+inoremap <F4> <Esc>:bd<CR>
+noremap <F2> <Esc>:bn<CR>
+noremap <F3> <Esc>:bp<CR>
+noremap <F4> <Esc>:bd<CR>
+
+" Make p in Visual mode replace the selected text with the "" register.
+vnoremap p <Esc>:let current_reg = @"<CR>gvdi<C-R>=current_reg<CR><Esc>
+
+" Key mappings }}}
+
+" Autocommands {{{
+if has("autocmd")
+
+    " When vim is used in a console window, set the title bar to the
+    " name of the buffer being editted.
+    if !has("gui_running")
+        auto BufEnter * let &titlestring="VIM - ".expand("%:p")
+    endif
+
+    " In text and LaTeX files, always limit the width of text to 76
+    " characters.  Also perform logical wrapping/indenting.
+    autocmd BufRead *.txt set tw=76 formatoptions=tcroqn2l
+    autocmd BufRead *.tex set tw=76
+
+    " Programming settings {{{
+    augroup prog
+        au!
+        au BufRead *.c,*.cc,*.cpp,*.h,*.java set formatoptions=croql cindent nowrap nofoldenable
+        au BufEnter *.java      map <C-Return> :w\|:!javac %<CR>
+        au BufEnter *.c         map <C-Return> :w\|:!gcc %<CR>
+        au BufEnter *.cc,*.cpp  map <C-Return> :w\|:!g++ %<CR>
+        au BufLeave *.java,*.c,*.cc unmap <C-Return>
+
+        " Don't expand tabs to spaces in Makefiles
+        au BufEnter  [Mm]akefile*  set noet
+        au BufLeave  [Mm]akefile*  set et
+
+        " Set up folding for python
+        au FileType python set nofoldenable foldmethod=indent
+    augroup END
+    " }}}
+
+
+    " Reread configuration of Vim if .vimrc is saved {{{
+    augroup VimConfig
+        au!
+        autocmd BufWritePost ~/.vimrc       so ~/.vimrc
+        autocmd BufWritePost vimrc          so ~/.vimrc
+    augroup END
+    " }}}
+
+
+"    " C programming auto commands {{{
+"    augroup cprog
+"        au!
+"
+"        " When starting to edit a file:
+"        "   For C and C++ files set formatting of comments and set C-indenting on.
+"        "   For other files switch it off.
+"        "   Don't change the order, it's important that the line with * comes first.
+"        "autocmd FileType *      set formatoptions=tcql nocindent comments&
+"        "autocmd FileType c,cpp  set formatoptions=croql comments=sr:/*,mb:*,el:*/,://
+"
+"        " Automatic "folding" in C code.  This is cool.
+"        "if version >= 600
+"        "    "au FileType c set foldenable foldmethod=indent
+"        "    au FileType c,cpp set nofoldenable foldmethod=syntax
+"        "    au FileType c,cpp syn region Block start="{" end="}" transparent fold
+"        "    "au FileType c syn region Comment start="/\*" end="\*/" fold
+"        "endif
+"    augroup END
+"    " }}}
+
+endif " has("autocmd")
+" }}}
+
+" Functions {{{
+
+" IspellCheck() {{{
+function! IspellCheck()
+    let l:tmpfile = tempname()
+
+    execute "normal:w!" . l:tmpfile . "\<CR>"
+    if has("gui_running")
+        execute "normal:!xterm -e ispell " . l:tmpfile . "\<CR>"
     else
-        let g:solarized_style="dark"
-        colorscheme solarized
+        execute "normal:! ispell " . l:tmpfile . "\<CR>"
+    endif
+    execute "normal:%d\<CR>"
+    execute "normal:r " . l:tmpfile . "\<CR>"
+    execute "normal:1d\<CR>"
+endfunction
+" IspellCheck }}}
+
+" InsertTabWrapper() {{{
+" Tab completion of tags/keywords if not at the beginning of the
+" line.  Very slick.
+function! InsertTabWrapper()
+    let col = col('.') - 1
+    if !col || getline('.')[col - 1] !~ '\k'
+        return "\<tab>"
+    else
+        return "\<c-p>"
     endif
 endfunction
-command! Togbg call ToggleBackground()
-nnoremap <F5> :call ToggleBackground()<CR>
-inoremap <F5> <ESC>:call ToggleBackground()<CR>a
-vnoremap <F5> <ESC>:call ToggleBackground()<CR>
+" InsertTabWrapper() }}}
 
+" Functions }}}
+
+" Settings for specific syntax files {{{
+let c_gnu=1
+let c_comment_strings=1
+let c_space_errors=1
+
+"let perl_fold=1          " turn on perl folding capabilities
+" }}}
+
+
+" Modeline {{{
+" vim:set ts=4:
+" vim600:fdm=marker fdl=0 fdc=3 vb t_vb=:
+" }}}
+
+
+" Own Changes
+set hlsearch
+set incsearch
+set autochdir
+set nowrap
+set number
+set guifont=Droid\ Sans\ Mono:h12
+
+execute pathogen#infect()
+
+" C=64 ACME
+augroup filetypedetect
+    autocmd BufNewFile,BufRead *.a set syntax=acme.vim
+augroup END
+
+" C=64 ca65
+filetype plugin indent on
+augroup filetypedetect
+    au BufNewFile,BufRead *.s,*.inc,*.mac set ft=asm_ca65
+augroup END
+
+" overwrite defaults: Indentation / tab replacement stuff
+set shiftwidth=8         " > and < move block by 4 spaces in visual mode
+set sts=8
+set ts=8
+set noet                 " expand tabs to spaces
