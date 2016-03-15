@@ -305,3 +305,5 @@ augroup filetypedetect
     au BufNewFile,BufRead *.s,*.inc set ft=asm_ca65
 augroup END
 
+set autochdir
+set guifont=Droid\ Sans\ Mono:h12
