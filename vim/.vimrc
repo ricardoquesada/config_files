@@ -303,7 +303,12 @@ execute pathogen#infect()
 filetype plugin indent on
 augroup filetypedetect
     au BufNewFile,BufRead *.s,*.inc set ft=asm_ca65
+    au BufNewFile,BufRead *.tas set filetype=64tass
 augroup END
 
+
+
 set autochdir
-set guifont=Droid\ Sans\ Mono:h12
+set incsearch
+set number
+set nowrap
