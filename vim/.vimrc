@@ -312,3 +312,13 @@ set autochdir
 set incsearch
 set number
 set nowrap
+
+" C++ language support
+let g:LanguageClient_serverCommands = {
+  \ 'cpp': ['clangd'],
+  \ }
+
+" Ctrl-C / Ctrl-V support
+source $VIMRUNTIME/mswin.vim
+behave mswin
+
