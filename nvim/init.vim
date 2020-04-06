@@ -393,3 +393,6 @@ augroup END
 let g:go_def_mode='gopls'
 let g:go_info_mode='gopls'
 
+" Ctrl-C / Ctrl-V support
+source $VIMRUNTIME/mswin.vim
+behave mswin
