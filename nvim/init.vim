@@ -14,10 +14,10 @@ let install_and_use_deoplete = 1
 call plug#begin('~/.config/nvim/plugged')
 
 " Declare the list of plugins.
-Plug 'vim-syntastic/syntastic'
+" Plug 'vim-syntastic/syntastic'
 
 Plug 'google/vim-maktaba'
-Plug 'google/vim-codefmt'
+" Plug 'google/vim-codefmt'
 Plug 'google/vim-glaive'
 
 Plug 'jremmen/vim-ripgrep'
@@ -47,6 +47,8 @@ Plug 'honza/vim-snippets'
 
 " Plug 'andreyorst/SimpleSnippets.vim'
 
+Plug 'qpkorr/vim-bufkill'
+
 Plug 'https://gitlab.com/3d_immortal/nn-vim.git'
 
 Plug 'scrooloose/nerdtree'
@@ -55,7 +57,7 @@ Plug 'majutsushi/tagbar'
 Plug 'Yggdroot/indentLine'
 
 Plug 'liuchengxu/vim-clap'
-Plug 'mhinz/vim-startify'
+" Plug 'mhinz/vim-startify'
 
 " Colors:
 Plug 'https://gitlab.com/3d_immortal/uc_light.git'
@@ -66,6 +68,10 @@ Plug 'sheerun/vim-polyglot'
 " Plug 'joshdick/onedark.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+
+" Dart and Flutter
+Plug 'dart-lang/dart-vim-plugin'
+Plug 'thosakwe/vim-flutter'
 
 " Plug 'ap/vim-buftabline'
 
@@ -120,6 +126,7 @@ endif
 " Always show tabs
 set showtabline=2
 
+set noautochdir
 set nohidden
 set switchbuf+=useopen,usetab
 
@@ -161,8 +168,8 @@ set title
 " limited on RAM, comment this out.
 set noswapfile
 
-set scrolljump=5  " lines to scroll when cursor leaves screen
-set scrolloff=3   " minimum lines to keep above and below cursor
+set scrolljump=3  " lines to scroll when cursor leaves screen
+set scrolloff=2   " minimum lines to keep above and below cursor
 
 set conceallevel=0                      " So that I can see `` in markdown files
 
@@ -199,17 +206,17 @@ set complete-=i   " disable scanning included files
 " set complete-=t   " disable searching tags
 
 " setup for syntastic
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-let g:syntastic_always_populate_loc_list = 0
-let g:syntastic_auto_loc_list = 0
-let g:syntastic_check_on_open = 0
-let g:syntastic_check_on_wq = 0
-let g:syntastic_auto_jump = 0
+" set statusline+=%#warningmsg#
+" set statusline+=%{SyntasticStatuslineFlag()}
+" set statusline+=%*
+" let g:syntastic_always_populate_loc_list = 0
+" let g:syntastic_auto_loc_list = 0
+" let g:syntastic_check_on_open = 0
+" let g:syntastic_check_on_wq = 0
+" let g:syntastic_auto_jump = 0
 
 " use google style for clang-format
-Glaive codefmt clang_format_style='chromium'
+" Glaive codefmt clang_format_style='chromium'
 
 " setup for indent line
 let g:indentLine_char = '│'
@@ -257,16 +264,63 @@ else
 endif
 
 " ------------------------------------------------------------------------------
+" Dart and Flutter:
+
+let dart_html_in_string=v:true
+let g:dart_style_guide = 2
+let g:dart_format_on_save = 1
+let g:flutter_hot_reload_on_save = 1
+
+" ------------------------------------------------------------------------------
 " LanguageClient_Server:
+
+" Note you need to have DART_SDK in your environment in .bashrc
+" If you installed flutter, then you will find it inside the flutter checkout at
+" <flutter_checkout>/bin/cache/dart-sdk
+let dart_sdk = $DART_SDK
+let dart = dart_sdk.'/bin/dart'
+let dart_lsp_arg1 = dart_sdk.'/bin/snapshots/analysis_server.dart.snapshot'
 
 let g:LanguageClient_serverCommands = {
   \ 'cpp': ['clangd', '--all-scopes-completion'],
   \ 'c': ['clangd', '--all-scopes-completion'],
   \ 'd': ['~/.dub/packages/.bin/dls-latest/dls'],
+  \ 'dart': [dart, dart_lsp_arg1, '--lsp'],
   \ }
 
 " Disable diagnostic signs which don't work very well in hterm.
-let g:LanguageClient_diagnosticsSignsMax = 0
+" let g:LanguageClient_diagnosticsSignsMax = 0
+
+let g:LanguageClient_diagnosticsDisplay = {
+  \   1: {
+  \       "name": "Error",
+  \       "texthl": "ALEError",
+  \       "signText": "xx",
+  \       "signTexthl": "ALEErrorSign",
+  \       "virtualTexthl": "Error",
+  \   },
+  \   2: {
+  \       "name": "Warning",
+  \       "texthl": "ALEWarning",
+  \       "signText": "!!",
+  \       "signTexthl": "ALEWarningSign",
+  \       "virtualTexthl": "Todo",
+  \   },
+  \   3: {
+  \       "name": "Information",
+  \       "texthl": "ALEInfo",
+  \       "signText": "ii",
+  \       "signTexthl": "ALEInfoSign",
+  \       "virtualTexthl": "Todo",
+  \   },
+  \   4: {
+  \       "name": "Hint",
+  \       "texthl": "ALEInfo",
+  \       "signText": ">>",
+  \       "signTexthl": "ALEInfoSign",
+  \       "virtualTexthl": "Todo",
+  \   },
+  \ }
 
 " ------------------------------------------------------------------------------
 " FZF:
@@ -278,7 +332,7 @@ let g:fzf_action = {
   \ 'ctrl-x': 'split',
   \ 'ctrl-v': 'vsplit' }
 let g:fzf_layout = {'up':'~90%', 'window':
-  \ { 'width': 0.8, 'height': 0.8, 'yoffset':0.5, 'xoffset': 0.5,
+  \ { 'width': 0.9, 'height': 0.9, 'yoffset':0.5, 'xoffset': 0.5,
   \  'highlight': 'Todo', 'border': 'sharp' } }
 
 " ------------------------------------------------------------------------------
@@ -477,7 +531,7 @@ noremap <C-p> :GFiles<CR>
 noremap <leader>g :Files<CR>
 nnoremap <leader>l :Buffers<CR>
 nnoremap <leader>c :Colors<CR>
-nnoremap <leader>bl :BLines<CR>
+nnoremap <leader>b :BLines<CR>
 
 noremap <C-S-f> :! git cl format<CR><esc>
 
@@ -491,7 +545,7 @@ nnoremap <leader>tt :vnew<cr>
 nnoremap <leader>t :vsp<cr>
 
 " Faster bufdo:
-nnoremap <leader>b :bufdo<space>
+nnoremap <leader>db :bufdo<space>
 
 nnoremap <F2> :MyGrep -g'*.{c,cc,cpp,mm,h,d,nn}'<space>
 
@@ -508,11 +562,12 @@ augroup all_my_auto_commands
   autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
   autocmd FileType * inoremap <buffer> <silent> <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
   autocmd FileType * inoremap <buffer> <silent> <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<S-TAB>"
-  autocmd FileType c,cpp,proto,javascript AutoFormatBuffer none " clang-format
-  autocmd FileType python AutoFormatBuffer yapf
+  " autocmd FileType c,cpp,proto,javascript AutoFormatBuffer none " clang-format
+  " autocmd FileType python AutoFormatBuffer yapf
 
   " indent for special file
   autocmd FileType c,cpp,cc,h setlocal expandtab shiftwidth=2 softtabstop=2 cindent
+  autocmd FileType dart setlocal expandtab shiftwidth=2 softtabstop=2
   autocmd FileType d setlocal expandtab shiftwidth=2 softtabstop=2 cindent foldnestmax=2
 
   " StripTrailingWhitespaces
@@ -592,3 +647,4 @@ augroup END
 " let g:ctrlp_user_command = 'fdfind -i -H -c auto -t f --search-path %s '
 " autocmd FileType python setlocal expandtab shiftwidth=4 softtabstop=4 autoindent
 " This is the default extra key bindings
+
