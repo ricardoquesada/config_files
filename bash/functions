@@ -1,0 +1,135 @@
+#
+# Functions
+#
+
+function open () {
+  xdg-open "$@">/dev/null 2>&1
+}
+
+
+# create a new directory and enter it
+function mkd() {
+    mkdir -p "$@" && cd "$_";
+}
+
+# `tre` is a shorthand for `tree` with hidden files and color enabled, ignoring
+# the `.git` directory, listing directories first. The output gets piped into
+# `less` with options to preserve color and line numbers, unless the output is
+# small enough for one screen.
+function tre() {
+    if type tree &> /dev/null; then
+        tree -aC -I '.git|node_modules|bower_components' --dirsfirst "$@" | less -FRNX;
+    else
+        pwd=$(pwd)
+        find $pwd -print | sed -e "s;$pwd;\.;g;s;[^/]*\/;|__;g;s;__|; |;g"
+    fi
+}
+
+# colorized man pages
+function man() {
+    env \
+        LESS_TERMCAP_mb=$(printf "\e[1;31m") \
+        LESS_TERMCAP_md=$(printf "\e[1;31m") \
+        LESS_TERMCAP_me=$(printf "\e[0m") \
+        LESS_TERMCAP_se=$(printf "\e[0m") \
+        LESS_TERMCAP_so=$(printf "\e[1;44;33m") \
+        LESS_TERMCAP_ue=$(printf "\e[0m") \
+        LESS_TERMCAP_us=$(printf "\e[1;32m") \
+            man "$@"
+}
+
+# wrapper for easy extraction of compressed files
+function extract () {
+  if [ -f $1 ] ; then
+      case $1 in
+          *.tar.xz)    tar xvJf $1    ;;
+          *.tar.bz2)   tar xvjf $1    ;;
+          *.tar.gz)    tar xvzf $1    ;;
+          *.bz2)       bunzip2 $1     ;;
+          *.rar)       unrar e $1     ;;
+          *.gz)        gunzip $1      ;;
+          *.tar)       tar xvf $1     ;;
+          *.tbz2)      tar xvjf $1    ;;
+          *.tgz)       tar xvzf $1    ;;
+          *.apk)       unzip $1       ;;
+          *.epub)      unzip $1       ;;
+          *.xpi)       unzip $1       ;;
+          *.zip)       unzip $1       ;;
+          *.war)       unzip $1       ;;
+          *.jar)       unzip $1       ;;
+          *.Z)         uncompress $1  ;;
+          *.7z)        7z x $1        ;;
+          *)           echo "don't know how to extract '$1'..." ;;
+      esac
+  else
+      echo "'$1' is not a valid file!"
+  fi
+}
+
+# find executable binarys in given path
+function find_exec() {
+    if [[ -z "$1" ]]; then
+        echo "No argument supplied"
+        return 1
+    fi
+    case "${OSTYPE}" in
+      darwin*) find $1 -perm +111 -type f ;;
+      linux*)  find $1 -executable -type f ;;
+      *)       echo "unknown ${OSTYPE}" ;;
+    esac
+}
+
+# get number of logical cpu cores
+function cores() {
+    case "${OSTYPE}" in
+      darwin*) sysctl -n hw.ncpu ;;
+      linux*)  grep -c ^processor /proc/cpuinfo ;;
+      *)       echo "unknwon ${OSTYPE}" ;;
+    esac
+}
+
+# dump compiler include paths
+function include_paths() {
+    local comp="c"
+    if [[ -z "${1}" ]]; then
+        echo "No compiler as argument supplied"
+        return 1
+    fi
+    if [[ "${1}" == *++ ]]; then
+        comp="c++"
+    fi
+    ${1} -E -x ${comp} - -v < /dev/null
+}
+
+# start clean bash without any env paths set
+function clean_bash() {
+    env -i bash --noprofile --norc
+}
+
+# start ssh-agent to avoid reentering passphrase
+function start_ssh_agent() {
+    for agent in /tmp/ssh-*/agent.*; do
+        export SSH_AUTH_SOCK=${agent}
+        if ssh-add -l 2>&1 > /dev/null; then
+            echo "Found working SSH agent. Reutilize old one."
+            ssh-add -l
+            return
+        fi
+    done
+    echo "Initialising new SSH agent..."
+    eval "$(ssh-agent -s)"
+    ssh-add
+}
+
+
+# set tmux pane title to hostname on ssh connections
+function ssh() {
+    if [ "$(ps -p $(ps -p $$ -o ppid=) -o comm=)" = "tmux" ]; then
+        tmux rename-window "$(echo $* | rev | cut -d ' ' -f1 | rev | cut -d . -f 1)"
+        command ssh "$@"
+        tmux set-window-option automatic-rename "on" 1>/dev/null
+    else
+        command ssh "$@"
+    fi
+}
+

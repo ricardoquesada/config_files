@@ -1,0 +1,16 @@
+#
+# aliases
+#
+
+#Neovim
+alias nvim="nvim.appimage"
+
+# easier navigation
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
+alias .....="cd ../../../.."
+alias ~="cd ~"
+
+# List only directories
+alias lsd="ls -lF --color | grep --color=never '^d'"
