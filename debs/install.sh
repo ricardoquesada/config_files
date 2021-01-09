@@ -18,4 +18,4 @@ sudo apt install freecad blender kicad kicad-packages3d
 sudo apt install steam
 
 # Vice
-sudo apt install dos2unix xa65 libsdl2-dev libsdl2-image-dev libpng-dev
+sudo apt install dos2unix xa65 libsdl2-dev libsdl2-image-dev libpng-dev libgtk-3-dev libglew-dev
