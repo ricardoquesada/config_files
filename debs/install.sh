@@ -13,7 +13,9 @@ pip3 install --user --upgrade msgpack
 sudo apt install libusb-1.0-0-dev
 
 # CADs
-sudo apt install freecad blender kicad kicad-packages3d
+# FreeCAD deb is broken: install it manually from their webpage
+# KiCAD: deb works Ok, but "official" one has latest version in .deb
+sudo apt install blender
 
 # Games
 sudo apt install steam
@@ -22,4 +24,4 @@ sudo apt install steam
 sudo apt install dos2unix xa65 libsdl2-dev libsdl2-image-dev libpng-dev libgtk-3-dev libglew-dev gawk
 
 # misc
-sudo apt install fonts-roboto
+sudo apt install fonts-roboto alacritty
