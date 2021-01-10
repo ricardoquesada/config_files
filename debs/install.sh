@@ -20,3 +20,6 @@ sudo apt install steam
 
 # Vice
 sudo apt install dos2unix xa65 libsdl2-dev libsdl2-image-dev libpng-dev libgtk-3-dev libglew-dev gawk
+
+# misc
+sudo apt install fonts-roboto
