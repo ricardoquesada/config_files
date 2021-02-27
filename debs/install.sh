@@ -10,12 +10,12 @@ pip3 install --user --upgrade pynvim
 pip3 install --user --upgrade msgpack
 
 # bluepad32 related
-sudo apt install libusb-1.0-0-dev
+sudo apt install libusb-1.0-0-dev libhidapi-dev
 
 # CADs
 # FreeCAD deb is broken: install it manually from their webpage
 # KiCAD: deb works Ok, but "official" one has latest version in .deb
-sudo apt install blender
+sudo apt install blender openscad
 
 # Games
 sudo apt install steam
@@ -24,4 +24,4 @@ sudo apt install steam
 sudo apt install dos2unix xa65 libsdl2-dev libsdl2-image-dev libpng-dev libgtk-3-dev libglew-dev gawk
 
 # misc
-sudo apt install fonts-roboto alacritty
+sudo apt install fonts-roboto alacritty evtest
