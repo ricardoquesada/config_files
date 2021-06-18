@@ -24,7 +24,7 @@ sudo apt install steam
 sudo apt install dos2unix xa65 libsdl2-dev libsdl2-image-dev libpng-dev libgtk-3-dev libglew-dev gawk
 
 # misc
-sudo apt install fonts-roboto evtest libjpeg-dev libcurl4-openssl-dev libminizip-dev minicom
+sudo apt install fonts-roboto evtest libjpeg-dev libcurl4-openssl-dev libminizip-dev minicom powerline
 
 # atool
 sudo apt install arj lzip pbzip2 bzip2 rar p7zip tar file lzip atool
