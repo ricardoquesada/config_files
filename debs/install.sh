@@ -28,3 +28,6 @@ sudo apt install fonts-roboto evtest libjpeg-dev libcurl4-openssl-dev libminizip
 
 # atool
 sudo apt install arj lzip pbzip2 bzip2 rar p7zip tar file lzip atool
+
+# Utils
+sudo apt install binwalk hexer
