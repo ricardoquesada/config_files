@@ -31,3 +31,6 @@ sudo apt install arj lzip pbzip2 bzip2 rar p7zip tar file lzip atool
 
 # Utils
 sudo apt install binwalk hexer
+
+# At the end, make sure that python is Python3
+sudo apt install python-is-python3
