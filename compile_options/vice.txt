@@ -1,0 +1,1 @@
+./configure --enable-debug --enable-debug-gtk3ui --with-mpg123 --enable-x64 --enable-x64-image --enable-static-ffmpeg
