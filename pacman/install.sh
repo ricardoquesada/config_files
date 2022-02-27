@@ -29,5 +29,5 @@ sudo pacman -Syu evtest evemu minicom powerline
 sudo pacman -Syu arj lzip pbzip2 bzip2 p7zip tar file lzip
 
 # Utils
-sudo pacman -Syu binwalk hexer cpio
+sudo pacman -Syu binwalk hexer cpio wireshark-qt
 
