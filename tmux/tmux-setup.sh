@@ -25,37 +25,58 @@ fi
 
 # Create session in detached state.
 
-#----- :1 unijoysticle
-tmux new -s ${SESSION_NAME} -d -n "unijoysticle"
+#----- :1 bluepad32
+tmux new -s ${SESSION_NAME} -d -n "bluepad32"
 tmux split-window -h -t ${SESSION_NAME}:1
 tmux split-window -v -t ${SESSION_NAME}:1.0
 
-# 1.0
-for i in {0..2}
+for i in {0..1}
 do
-tmux send-keys -t ${SESSION_NAME}:1.$i "cd ~/progs/unijoysticle2/" C-m
+tmux send-keys -t ${SESSION_NAME}:1.$i "cd ~/progs/bluepad32/" C-m
+tmux send-keys -t ${SESSION_NAME}:1.$i "source ~/esp/esp-idf/export.sh" C-m
+tmux send-keys -t ${SESSION_NAME}:1.$i "export PLATFORM=unijoysticle" C-m
 done
+tmux send-keys -t ${SESSION_NAME}:1.2 "cd ~/progs/bluepad32/" C-m
+tmux send-keys -t ${SESSION_NAME}:1.2 "export PLATFORM=unijoysticle" C-m
 
-#----- :2 src
-tmux new-window -t ${SESSION_NAME}:2 -n "src"
+#----- :2 quico
+tmux new-window -t ${SESSION_NAME}:2 -n "quico"
 tmux split-window -h -t ${SESSION_NAME}:2
 tmux split-window -v -t ${SESSION_NAME}:2.0
 
-# 2.0
 for i in {0..2}
 do
-tmux send-keys -t ${SESSION_NAME}:2.$i "cd ~/src" C-m
+tmux send-keys -t ${SESSION_NAME}:2.$i "cd ~/progs/quico/" C-m
 done
 
-#----- :3 misc
-tmux new-window -t ${SESSION_NAME}:3 -n "misc"
+#----- :3 Unijoysticle2
+tmux new-window -t ${SESSION_NAME}:3 -n "uni2"
 tmux split-window -h -t ${SESSION_NAME}:3
 tmux split-window -v -t ${SESSION_NAME}:3.0
 
-# 3.0
 for i in {0..2}
 do
-tmux send-keys -t ${SESSION_NAME}:3.$i "cd ~/" C-m
+tmux send-keys -t ${SESSION_NAME}:3.$i "cd ~/progs/unijoysticle2/" C-m
+done
+
+#----- :4 src
+tmux new-window -t ${SESSION_NAME}:4 -n "src"
+tmux split-window -h -t ${SESSION_NAME}:4
+tmux split-window -v -t ${SESSION_NAME}:4.0
+
+for i in {0..2}
+do
+tmux send-keys -t ${SESSION_NAME}:4.$i "cd ~/src" C-m
+done
+
+#----- :5 misc
+tmux new-window -t ${SESSION_NAME}:5 -n "misc"
+tmux split-window -h -t ${SESSION_NAME}:5
+tmux split-window -v -t ${SESSION_NAME}:5.0
+
+for i in {0..2}
+do
+tmux send-keys -t ${SESSION_NAME}:5.$i "cd ~/" C-m
 done
 
 #------
