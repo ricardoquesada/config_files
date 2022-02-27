@@ -1,14 +1,14 @@
 # compilers, terminal, etc
 sudo pacman -Syu base-devel --needed
-
+sudo pacman -Syu go rust nasm
 sudo pacman -Syu git mercurial meson autoconf automake ninja cmake make
-sudo pacman -Syu strace neovim tmux wget mc meld
-sudo pacman -Syu htop
+
+sudo pacman -Syu strace tmux wget mc meld
 
 # nvim related
-sudo pacman -Syu ripgrep curl xclip fuse
-pip3 install --user --upgrade pynvim
-pip3 install --user --upgrade msgpack
+sudo pacman -Syu neovim ripgrep curl xclip fuse
+pip install --user --upgrade pynvim
+pip install --user --upgrade msgpack
 
 
 # CADs
@@ -29,5 +29,5 @@ sudo pacman -Syu evtest evemu minicom powerline
 sudo pacman -Syu arj lzip pbzip2 bzip2 p7zip tar file lzip
 
 # Utils
-sudo pacman -Syu binwalk hexer cpio wireshark-qt the_silver_searcher
+sudo pacman -Syu binwalk hexer cpio wireshark-qt the_silver_searcher htop
 
