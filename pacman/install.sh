@@ -1,13 +1,12 @@
 # compilers, terminal, etc
-sudo pacman -S clang gdb gcc llvm nasm lldb
-#golang rustc clang-format clangd
+sudo pacman -Syu base-devel --needed
 
-sudo pacman -S git mercurial meson autoconf automake ninja cmake make
-sudo pacman -S strace neovim tmux wget mc meld
-sudo pacman -S htop
+sudo pacman -Syu git mercurial meson autoconf automake ninja cmake make
+sudo pacman -Syu strace neovim tmux wget mc meld
+sudo pacman -Syu htop
 
 # nvim related
-sudo pacman -S ripgrep curl xclip fuse
+sudo pacman -Syu ripgrep curl xclip fuse
 pip3 install --user --upgrade pynvim
 pip3 install --user --upgrade msgpack
 
@@ -15,20 +14,20 @@ pip3 install --user --upgrade msgpack
 # CADs
 # FreeCAD deb is broken: install it manually from their webpage
 # KiCAD: deb works Ok, but "official" one has latest version in .deb
-sudo pacman -S blender openscad
+sudo pacman -Syu blender openscad
 
 # Games
-sudo pacman -S steam
+sudo pacman -Syu steam
 
 # Vice
-sudo pacman -S dos2unix gawk xa
+sudo pacman -Syu dos2unix gawk xa
 
 # misc
-sudo pacman -S evtest minicom powerline
+sudo pacman -Syu evtest evemu minicom powerline
 
 # atool
-sudo pacman -S arj lzip pbzip2 bzip2 p7zip tar file lzip
+sudo pacman -Syu arj lzip pbzip2 bzip2 p7zip tar file lzip
 
 # Utils
-sudo pacman -S binwalk hexer cpio
+sudo pacman -Syu binwalk hexer cpio
 
