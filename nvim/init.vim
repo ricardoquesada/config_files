@@ -73,6 +73,8 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'dart-lang/dart-vim-plugin'
 Plug 'thosakwe/vim-flutter'
 
+Plug 'tpope/vim-fugitive'
+
 " Plug 'ap/vim-buftabline'
 
 " List ends here. Plugins become visible to Vim after this call.
@@ -228,26 +230,24 @@ set tags=./tags,tags;$HOME
 " Setup themes and airline
 
 " This is only necessary if you use set termguicolors.
-let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
-" fixes glitch? in colors when using vim with tmux
-set t_Co=256
-if (has("termguicolors"))
-  set termguicolors
-endif
+"let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+"let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+"" fixes glitch? in colors when using vim with tmux
+"set t_Co=256
+"if (has("termguicolors"))
+"  set termguicolors
+"endif
+"
+"lua require'colorizer'.setup()
 
-lua require'colorizer'.setup()
-
-"let g:airline_left_sep = ''
-"let g:airline_right_sep = ''
-"let g:airline#extensions#tabline#enabled = 1
+" let g:airline_left_sep = ''
+" let g:airline_right_sep = ''
+let g:airline#extensions#tabline#enabled = 1
 "let g:airline#extensions#tabline#left_sep = ''
-"let g:airline#extensions#tabline#left_alt_sep = ''
-"let g:airline#extensions#tabline#right_sep = ''
-"let g:airline#extensions#tabline#right_alt_sep = ''
-"let g:airline_powerline_fonts = 1
-
-"let g:airline_powerline_fonts=1
+" let g:airline#extensions#tabline#left_alt_sep = ''
+" let g:airline#extensions#tabline#right_sep = ''
+" let g:airline#extensions#tabline#right_alt_sep = ''
+let g:airline_powerline_fonts = 1
 
 let use_light_theme = 0
 
@@ -648,3 +648,9 @@ augroup END
 " autocmd FileType python setlocal expandtab shiftwidth=4 softtabstop=4 autoindent
 " This is the default extra key bindings
 
+" riq - addons
+"function! Formatonsave()
+"  let l:formatdiff = 1
+"  pyf /usr/share/vim/addons/syntax/clang-format.py
+"endfunction
+"autocmd BufWritePre *.h,*.c,*.cc,*.cpp call Formatonsave()
