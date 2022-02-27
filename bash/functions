@@ -133,3 +133,7 @@ function ssh() {
     fi
 }
 
+# Android adb auto-completion
+if [ -e ~/src/android/android-completion/android ] ; then
+    source ~/src/android/android-completion/android
+fi
