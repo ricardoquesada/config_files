@@ -21,7 +21,7 @@ sudo pacman -S blender openscad
 sudo pacman -S steam
 
 # Vice
-sudo pacman -S dos2unix gawk
+sudo pacman -S dos2unix gawk xa
 
 # misc
 sudo pacman -S evtest minicom powerline
