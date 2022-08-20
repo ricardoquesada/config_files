@@ -7,6 +7,7 @@ sudo pacman -Syu strace tmux wget mc meld
 
 # nvim related
 sudo pacman -Syu neovim ripgrep curl xclip fuse
+sudo pacman -Syu python-pip
 pip install --user --upgrade pynvim
 pip install --user --upgrade msgpack
 
