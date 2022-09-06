@@ -24,11 +24,15 @@ sudo pacman -Syu steam
 sudo pacman -Syu dos2unix gawk xa
 
 # misc
-sudo pacman -Syu evtest evemu minicom powerline
+sudo pacman -Syu evtest evemu minicom powerline tio
 
 # atool
 sudo pacman -Syu arj lzip pbzip2 bzip2 p7zip tar file lzip
 
 # Utils
 sudo pacman -Syu binwalk hexer cpio wireshark-qt the_silver_searcher htop
+
+# ESP-IDF
+sudo pacman -S --needed gcc git make flex bison gperf python-pip cmake ninja ccache dfu-util libusb
+
 
