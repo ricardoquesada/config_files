@@ -13,15 +13,13 @@ pip install --user --upgrade msgpack
 
 
 # CADs
-# FreeCAD deb is broken: install it manually from their webpage
-# KiCAD: deb works Ok, but "official" one has latest version in .deb
-sudo pacman -Syu blender openscad
+sudo pacman -Syu blender openscad obs-studio kicad freecad
 
 # Games
 sudo pacman -Syu steam
 
 # Vice
-sudo pacman -Syu dos2unix gawk xa
+sudo pacman -Syu dos2unix gawk xa svn
 
 # misc
 sudo pacman -Syu evtest evemu minicom powerline tio
