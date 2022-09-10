@@ -1,1 +1,1 @@
-./configure --enable-debug --enable-debug-gtk3ui --with-mpg123 --enable-x64 --enable-x64-image --enable-external-ffmpeg --enable-cpuhistory --disable-pdf-docs
+PKG_CONFIG_PATH="/usr/lib/ffmpeg4.4/pkgconfig" ./configure --enable-debug --enable-debug-gtk3ui --with-mpg123 --enable-x64 --enable-x64-image --enable-external-ffmpeg --enable-cpuhistory --disable-pdf-docs
