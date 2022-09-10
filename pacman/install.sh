@@ -13,7 +13,10 @@ pip install --user --upgrade msgpack
 
 
 # CADs
-sudo pacman -Syu blender openscad obs-studio kicad kicad-library kicad-library-3d freecad
+sudo pacman -Syu openscad kicad kicad-library kicad-library-3d freecad
+
+# Other editors
+sudo yay -Syu blender shotcut gimp obs-studio
 
 # Games
 sudo pacman -Syu steam
