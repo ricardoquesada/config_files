@@ -3,6 +3,7 @@ sudo systemctl start bluetooth.service
 
 # CUPS
 sudo systemctl start cups.service
+sudo systemctl enable cups.service
 
 # usbmon: https://www.kernel.org/doc/html/latest/usb/usbmon.html
 sudo mount -t debugfs none_debugs /sys/kernel/debug
