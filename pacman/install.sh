@@ -37,4 +37,4 @@ sudo pacman -Syu binwalk hexer cpio wireshark-qt the_silver_searcher htop
 sudo pacman -S --needed gcc git make flex bison gperf python-pip cmake ninja ccache dfu-util libusb
 
 # Printer
-sudo pacman -Syu system-config-printer
+sudo pacman -Syu system-config-printer hpoj
