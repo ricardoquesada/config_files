@@ -66,16 +66,15 @@ Plug 'norcalli/nvim-colorizer.lua'
 Plug 'junegunn/rainbow_parentheses.vim'
 Plug 'sheerun/vim-polyglot'
 " Plug 'joshdick/onedark.vim'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-
-" Dart and Flutter
-Plug 'dart-lang/dart-vim-plugin'
-Plug 'thosakwe/vim-flutter'
+" Plug 'vim-airline/vim-airline'
+" Plug 'vim-airline/vim-airline-themes'
 
 Plug 'tpope/vim-fugitive'
 
 " Plug 'ap/vim-buftabline'
+
+" ACME syntax hightlight
+Plug 'leissa/vim-acme'
 
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
@@ -157,8 +156,9 @@ syntax on
 
 " indent for global
 set expandtab
-set shiftwidth=2
-set softtabstop=2
+set shiftwidth=8
+set softtabstop=8
+set tabstop=8
 set autoindent
 
 " Set the terminal's title
@@ -179,17 +179,16 @@ set conceallevel=0                      " So that I can see `` in markdown files
 set formatoptions-=cro
 
 set visualbell
-set nobk			    " Don't create backup files
-set si				    " Turn on smart indent
-set ru				    " Turn on the ruler
-set sc				    " Show commands
-set smarttab		            " Turn on smart tabs
-set shiftwidth=2		" Number of spaces for indentation
+set nobk			" Don't create backup files
+set si				" Turn on smart indent
+set ru				" Turn on the ruler
+set sc				" Show commands
+set smarttab			" Turn on smart tabs
 set bsdir=last			" Go to last folder when browsing
 set hlsearch			" Highlight search results
 set incsearch			" Turn on incremental searching
 set history=100			" Keep X commands in history
-set number			    " Turn on line numbers
+set number			" Turn on line numbers
 set t_Co=256			" Enable 256 colors
 
 set redrawtime=10000
@@ -264,28 +263,11 @@ else
 endif
 
 " ------------------------------------------------------------------------------
-" Dart and Flutter:
-
-let dart_html_in_string=v:true
-let g:dart_style_guide = 2
-let g:dart_format_on_save = 1
-let g:flutter_hot_reload_on_save = 1
-
-" ------------------------------------------------------------------------------
 " LanguageClient_Server:
-
-" Note you need to have DART_SDK in your environment in .bashrc
-" If you installed flutter, then you will find it inside the flutter checkout at
-" <flutter_checkout>/bin/cache/dart-sdk
-let dart_sdk = $DART_SDK
-let dart = dart_sdk.'/bin/dart'
-let dart_lsp_arg1 = dart_sdk.'/bin/snapshots/analysis_server.dart.snapshot'
 
 let g:LanguageClient_serverCommands = {
   \ 'cpp': ['clangd', '--all-scopes-completion'],
   \ 'c': ['clangd', '--all-scopes-completion'],
-  \ 'd': ['~/.dub/packages/.bin/dls-latest/dls'],
-  \ 'dart': [dart, dart_lsp_arg1, '--lsp'],
   \ }
 
 " Disable diagnostic signs which don't work very well in hterm.
@@ -566,9 +548,8 @@ augroup all_my_auto_commands
   " autocmd FileType python AutoFormatBuffer yapf
 
   " indent for special file
-  autocmd FileType c,cpp,cc,h setlocal expandtab shiftwidth=2 softtabstop=2 cindent
-  autocmd FileType dart setlocal expandtab shiftwidth=2 softtabstop=2
-  autocmd FileType d setlocal expandtab shiftwidth=2 softtabstop=2 cindent foldnestmax=2
+  autocmd FileType c,cpp,cc,h setlocal expandtab shiftwidth=4 softtabstop=4 tabstop=4 cindent
+  autocmd FileType asm,s setlocal expandtab shiftwidth=8 softtabstop=8 tabstop=8
 
   " StripTrailingWhitespaces
   autocmd BufWritePre * Stripwhitespace
@@ -654,3 +635,12 @@ augroup END
 "  pyf /usr/share/vim/addons/syntax/clang-format.py
 "endfunction
 "autocmd BufWritePre *.h,*.c,*.cc,*.cpp call Formatonsave()
+
+augroup c64asm_ft
+  au!
+  autocmd BufNewFile,BufRead *.s   set syntax=64tass
+  autocmd BufNewFile,BufRead *.asm   set syntax=64tass
+augroup END
+
+set autochdir
+set list
