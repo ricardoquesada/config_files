@@ -3,7 +3,7 @@
 #
 
 #Neovim
-alias nvim="nvim.appimage"
+alias vim="nvim"
 
 # easier navigation
 alias ..="cd .."
@@ -14,3 +14,10 @@ alias ~="cd ~"
 
 # List only directories
 alias lsd="ls -lF --color | grep --color=never '^d'"
+
+# Function defined in "functions"
+alias ef='_open_files_for_editing'     # 'ef' opens given file(s) for editing
+
+# Find files
+alias ff="find | grep"
+alias ffi="find | grep -i"

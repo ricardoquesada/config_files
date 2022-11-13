@@ -26,6 +26,10 @@ export PS1="\[\033[00m\]\u@\h\[\033[01;33m\] \w \[\033[31m\]\$(parse_git_branch)
 #
 # Android
 #
+# Android adb auto-completion
+if [ -e ~/src/android/android-completion/android ] ; then
+    source ~/src/android/android-completion/android
+fi
 #export NDK_ROOT=~/androiddev/android-ndk-r13
 #export NDK_TOOLCHAIN_VERSION=4.9
 #export NDK_TOOLCHAIN_VERSION=clang
@@ -69,9 +73,9 @@ export DIR2ATR=~/tmp
 
 
 #
-# vim, not vi as default editor
+# nvim, not vi as default editor
 #
-export EDITOR=vim
+export EDITOR=nvim
 export VISUAL=$EDITOR
 
 #ESP32
@@ -129,3 +133,6 @@ export PATH=$PATH:~/bin/flutter/bin
 # Zephyr
 export ZEPHYR_TOOLCHAIN_VARIANT=zephyr
 export ZEPHYR_SDK_INSTALL_DIR=/home/riq/bin/zephyr-sdk-0.13.2
+
+# ModusToolbox
+export CY_TOOLS_PATHS=~/bin/ModusToolbox/tools_3.0
