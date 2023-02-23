@@ -1,8 +1,9 @@
 # compilers, terminal, etc
 sudo apt install clang-format clang gdb gcc g++ llvm clangd golang rustc nasm lldb
-sudo apt install git mercurial meson autoconf automake ninja-build make
-sudo apt install strace neovim tmux wajig wget curl mc ripgrep silversearcher-ag
+sudo apt install git mercurial meson autoconf automake ninja-build make cmake
+sudo apt install strace neovim tmux wget curl mc ripgrep silversearcher-ag
 sudo apt install htop
+sudo apt install wajig
 
 # GUI tools
 sudo apt install wireshark meld 
