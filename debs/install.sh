@@ -25,7 +25,7 @@ sudo apt install blender openscad
 sudo apt install steam
 
 # Vice
-sudo apt install dos2unix xa65 libsdl2-dev libsdl2-image-dev libpng-dev libgtk-3-dev libglew-dev gawk
+sudo apt install dos2unix xa65 libsdl2-dev libsdl2-image-dev libpng-dev libgtk-3-dev libglew-dev gawk flex bison libmpg123-dev
 
 # misc
 sudo apt install fonts-roboto evtest libjpeg-dev libcurl4-openssl-dev libminizip-dev minicom powerline tio
