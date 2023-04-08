@@ -26,3 +26,6 @@ alias ffi="find | grep -i"
 if [ `hostname` == "penguin" ]; then
     alias nvim=~/Applications/nvim.appimage
 fi
+
+# IDF
+alias get_idf='. $HOME/esp/esp-idf/export.sh'
