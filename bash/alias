@@ -23,7 +23,7 @@ alias ef='_open_files_for_editing'     # 'ef' opens given file(s) for editing
 alias ff="find | grep"
 alias ffi="find | grep -i"
 
-if [ `hostname` == "penguin" ]; then
+if [[ `hostname` == "penguin" ]]; then
     alias nvim=~/Applications/nvim.appimage
 fi
 
