@@ -85,7 +85,6 @@ export VISUAL=$EDITOR
 #ESP32
 #export PATH=$PATH:$HOME/esp/xtensa-esp32-elf/bin
 export IDF_PATH=$HOME/esp/esp-idf
-export ESPPORT=/dev/ttyUSB0
 export ESPBAUD=115200
 export MONITORBAUD=115200
 
@@ -143,3 +142,6 @@ export ZEPHYR_SDK_INSTALL_DIR=/home/riq/bin/zephyr-sdk-0.13.2
 
 # ModusToolbox
 export CY_TOOLS_PATHS=~/bin/ModusToolbox/tools_3.1
+
+# JetBrains
+export PATH=$PATH:$HOME/.local/share/JetBrains/Toolbox/scripts
