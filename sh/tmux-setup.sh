@@ -39,14 +39,14 @@ done
 tmux send-keys -t ${SESSION_NAME}:1.2 "cd ~/progs/bluepad32/" C-m
 tmux send-keys -t ${SESSION_NAME}:1.2 "export PLATFORM=unijoysticle" C-m
 
-#----- :2 quico
-tmux new-window -t ${SESSION_NAME}:2 -n "quico"
+#----- :2 ble
+tmux new-window -t ${SESSION_NAME}:2 -n "ble"
 tmux split-window -h -t ${SESSION_NAME}:2
 tmux split-window -v -t ${SESSION_NAME}:2.0
 
 for i in {0..2}
 do
-tmux send-keys -t ${SESSION_NAME}:2.$i "cd ~/progs/quico/" C-m
+tmux send-keys -t ${SESSION_NAME}:2.$i "cd ~/progs/bluepad32-ble-client/" C-m
 done
 
 #----- :3 Unijoysticle2
@@ -59,14 +59,14 @@ do
 tmux send-keys -t ${SESSION_NAME}:3.$i "cd ~/progs/unijoysticle2/" C-m
 done
 
-#----- :4 src
-tmux new-window -t ${SESSION_NAME}:4 -n "src"
+#----- :4 pixem
+tmux new-window -t ${SESSION_NAME}:4 -n "pixem"
 tmux split-window -h -t ${SESSION_NAME}:4
 tmux split-window -v -t ${SESSION_NAME}:4.0
 
 for i in {0..2}
 do
-tmux send-keys -t ${SESSION_NAME}:4.$i "cd ~/src" C-m
+tmux send-keys -t ${SESSION_NAME}:4.$i "cd ~/progs/embroidery/pixel" C-m
 done
 
 #----- :5 misc
