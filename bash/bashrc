@@ -31,13 +31,13 @@ fi
 # Android
 #
 # Android adb auto-completion
-if [ -e ~/src/android/android-completion/android ] ; then
-    source ~/src/android/android-completion/android
-fi
+#if [ -e ~/src/android/android-completion/android ] ; then
+#    source ~/src/android/android-completion/android
+#fi
 #export NDK_ROOT=~/androiddev/android-ndk-r13
 #export NDK_TOOLCHAIN_VERSION=4.9
 #export NDK_TOOLCHAIN_VERSION=clang
-export ANDROID_HOME=~/Android/Sdk
+export ANDROID_HOME=~/Library/Android/Sdk
 export ANDROID_NDK_HOME=$ANDROID_HOME/ndk/25.1.8937393
 export ANDROID_NDK=$ANDROID_HOME/ndk-bundle
 
@@ -85,6 +85,7 @@ export VISUAL=$EDITOR
 #ESP32
 #export PATH=$PATH:$HOME/esp/xtensa-esp32-elf/bin
 export IDF_PATH=$HOME/esp/esp-idf
+#export ESPPORT=/dev/ttyUSB0
 export ESPBAUD=115200
 export MONITORBAUD=115200
 
@@ -134,7 +135,7 @@ fi
 
 # Flutter
 export PATH=$PATH:~/bin/flutter/bin
-export CHROME_EXECUTABLE=/opt/google/chrome/chrome
+#export CHROME_EXECUTABLE=/opt/google/chrome/chrome
 
 # Zephyr
 export ZEPHYR_TOOLCHAIN_VARIANT=zephyr
@@ -145,3 +146,9 @@ export CY_TOOLS_PATHS=~/bin/ModusToolbox/tools_3.1
 
 # JetBrains
 export PATH=$PATH:$HOME/.local/share/JetBrains/Toolbox/scripts
+
+# Ruby macOS
+if [ -d "/opt/homebrew/opt/ruby/bin" ]; then
+  export PATH=/opt/homebrew/opt/ruby/bin:$PATH
+  export PATH=`gem environment gemdir`/bin:$PATH
+fi
