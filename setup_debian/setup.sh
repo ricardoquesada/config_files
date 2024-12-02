@@ -38,3 +38,7 @@ sudo apt install binwalk hexer lzma cpio
 
 # At the end, make sure that python is Python3
 sudo apt install python-is-python3
+
+# From here: https://www.josean.com/posts/7-amazing-cli-tools
+# fzf, fd, etc
+sudo apt install fd-find fzf eza bat git-delta tldr thefuck zoxide
