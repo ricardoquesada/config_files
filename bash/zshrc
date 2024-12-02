@@ -1,3 +1,7 @@
+unsetopt inc_append_history
+unsetopt share_history
+
+# From: https://www.josean.com/posts/7-amazing-cli-tools
 # ---- FZF -----
 
 # Set up fzf key bindings and fuzzy completion
