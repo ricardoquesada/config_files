@@ -6,12 +6,11 @@ sudo apt install htop
 sudo apt install wajig
 
 # GUI tools
-sudo apt install wireshark meld 
+sudo apt install wireshark meld
 
 # nvim related
 sudo apt install exuberant-ctags python3-dev fonts-powerline python3-pip xclip fuse3
-sudo apt-get install python3-pynvim
-pip3 install --user --upgrade msgpack
+sudo apt-get install python3-pynvim python3-msgpack
 
 # bluepad32 related
 sudo apt install libusb-1.0-0-dev libhidapi-dev
