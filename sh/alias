@@ -2,6 +2,10 @@
 # aliases
 #
 
+alias alias_edit="nvim ~/progs/config_files/sh/alias && source ~/progs/config_files/sh/alias"
+alias alias_reload="source ~/progs/config_files/sh/alias"
+
+
 # editor
 alias e=nvim
 
