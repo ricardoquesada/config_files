@@ -26,7 +26,7 @@ _fzf_compgen_dir() {
 }
 
 # fzf-git
-source ~/src/fzf-git.sh/fzf-git.sh
+source ~/src/misc/fzf-git.sh/fzf-git.sh
 
 # --- setup fzf theme ---
 fg="#CBE0F0"
