@@ -16,9 +16,13 @@ alias ....="cd ../../.."
 alias .....="cd ../../../.."
 alias ~="cd ~"
 
-# List only directories
-alias lsd="ls -lF --color | grep --color=never '^d'"
-#alias ll="ls -l --color"
+# ---- Eza (better ls) -----
+alias ls="eza --color=always --long --git --icons=always --no-filesize --no-time --no-user --no-permissions"
+alias ll="eza --color=always --long --git --icons=always"
+
+# ---- Zoxide (better cd) ----
+alias cd="z"
+
 
 # Function defined in "functions"
 alias ef='_open_files_for_editing'     # 'ef' opens given file(s) for editing
