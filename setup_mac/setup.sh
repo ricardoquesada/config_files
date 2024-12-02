@@ -7,8 +7,8 @@ brew install fzf
 brew install fd
 
 # From here: https://www.josean.com/posts/7-amazing-cli-tools
-mkdir -p ~/src
-cd ~/src/
+mkdir -p ~/src/misc/
+cd ~/src/misc/
 git clone https://github.com/junegunn/fzf-git.sh.git
 
 # better cat
@@ -28,5 +28,5 @@ brew install tlrc
 brew install thefuck
 # better cd
 brew install zoxide
-
-
+# fonts
+brew install font-meslo-lg-nerd-font 
