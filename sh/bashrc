@@ -8,7 +8,7 @@ CURRENT_SHELL=`readlink /proc/$$/exe`
 #
 # local path
 #
-export PATH="${PATH}:$HOME/bin/misc"
+export PATH="${PATH}:$HOME/bin/misc:$HOME/.local/bin"
 
 # depot tools
 # export PATH=~/bin/depot_tools:"$PATH"
