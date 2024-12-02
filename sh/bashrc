@@ -11,7 +11,7 @@ CURRENT_SHELL=`readlink /proc/$$/exe`
 export PATH="${PATH}:$HOME/bin/misc:$HOME/.local/bin"
 
 # depot tools
-# export PATH=~/bin/depot_tools:"$PATH"
+ export PATH=~/bin/depot_tools:"$PATH"
 
 #
 # Git
