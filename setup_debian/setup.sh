@@ -9,7 +9,7 @@ sudo apt install wajig
 sudo apt install wireshark meld 
 
 # nvim related
-sudo apt install exuberant-ctags python3-dev fonts-powerline python3-pip xclip fuse
+sudo apt install exuberant-ctags python3-dev fonts-powerline python3-pip xclip fuse3
 pip3 install --user --upgrade pynvim
 pip3 install --user --upgrade msgpack
 
@@ -22,7 +22,7 @@ sudo apt install libusb-1.0-0-dev libhidapi-dev
 sudo apt install blender openscad
 
 # Games
-sudo apt install steam
+#sudo apt install steam
 
 # Vice
 sudo apt install dos2unix xa65 libsdl2-dev libsdl2-image-dev libpng-dev libgtk-3-dev libglew-dev gawk flex bison libmpg123-dev
