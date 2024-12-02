@@ -30,3 +30,6 @@ brew install thefuck
 brew install zoxide
 # fonts
 brew install font-meslo-lg-nerd-font 
+
+# Installing dependencies using Homebrew
+brew install ripgrep the_silver_searcher perl universal-ctags
