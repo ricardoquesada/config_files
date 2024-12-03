@@ -9,7 +9,7 @@ sudo apt install wajig
 sudo apt install wireshark meld
 
 # nvim related
-sudo apt install exuberant-ctags python3-dev fonts-powerline python3-pip xclip fuse3
+sudo apt install exuberant-ctags python3-dev fonts-powerline python3-pip xclip fuse3 python3-venv
 sudo apt-get install python3-pynvim python3-msgpack
 
 # bluepad32 related
