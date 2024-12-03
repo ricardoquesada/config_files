@@ -16,18 +16,5 @@ import = [
     "~/.config/alacritty/themes/themes/coolnight.toml"
 ]
 
-[hints]
-alphabet = "jfkdls;ahgurieowpq"
-
-[[hints.enabled]]
-command = "open"
-hyperlinks = true
-post_processing = true
-regex = "(ipfs:|ipns:|magnet:|mailto:|gemini:|gopher:|https:|http:|news:|file:|git:|ssh:|ftp:)[^\u0000-\u001F\u007F-<>\"\\s{-}\\^⟨⟩`]+"
-
-[hints.enabled.mouse]
-enabled = true
-mods = "None"
-
 [selection]
 save_to_clipboard = true
