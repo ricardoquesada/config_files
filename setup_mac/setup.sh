@@ -6,7 +6,8 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 brew install fzf
 brew install fd
 
-brew install git cmake tmux
+brew install git tmux
+brew install cmake pkgconfig libusb
 
 # From here: https://www.josean.com/posts/7-amazing-cli-tools
 mkdir -p ~/src/misc/
