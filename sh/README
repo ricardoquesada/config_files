@@ -1,3 +1,14 @@
 Some alias/functions taken from here:
 
 https://github.com/NewProggie/Dev-Utils/tree/master/dotfiles
+
+## ~/.zshrc
+
+Add this to ~/.zshrc
+
+source ~/progs/config_files/sh/alias
+source ~/progs/config_files/sh/functions
+source ~/progs/config_files/sh/bashrc
+source ~/progs/config_files/sh/zshrc
+
+unsetopt share_history
