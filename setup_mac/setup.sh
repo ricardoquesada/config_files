@@ -6,7 +6,7 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 brew install fzf
 brew install fd
 
-brew install git cmake
+brew install git cmake tmux
 
 # From here: https://www.josean.com/posts/7-amazing-cli-tools
 mkdir -p ~/src/misc/
