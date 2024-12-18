@@ -10,5 +10,3 @@ source ~/progs/config_files/sh/alias
 source ~/progs/config_files/sh/functions
 source ~/progs/config_files/sh/bashrc
 source ~/progs/config_files/sh/zshrc
-
-unsetopt share_history
