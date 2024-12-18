@@ -66,7 +66,7 @@ tmux split-window -v -t ${SESSION_NAME}:4.0
 
 for i in {0..2}
 do
-tmux send-keys -t ${SESSION_NAME}:4.$i "cd ~/progs/embroidery/pixel" C-m
+tmux send-keys -t ${SESSION_NAME}:4.$i "cd ~/progs/embroidery/pixem" C-m
 done
 
 #----- :5 misc
