@@ -46,7 +46,7 @@ tmux split-window -v -t ${SESSION_NAME}:2.0
 
 for i in {0..2}
 do
-tmux send-keys -t ${SESSION_NAME}:2.$i "cd ~/progs/bluepad32-ble-client/" C-m
+tmux send-keys -t ${SESSION_NAME}:2.$i "cd ~/progs/vchar64/" C-m
 done
 
 #----- :3 Unijoysticle2
