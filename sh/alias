@@ -16,13 +16,15 @@ alias ....="cd ../../.."
 alias .....="cd ../../../.."
 alias ~="cd ~"
 
+if [[ `hostname` != "penguin" ]]; then
 # ---- Eza (better ls) -----
-alias ls="eza --color=always --long --git --icons=always --no-filesize --no-time --no-user --no-permissions"
-alias ll="eza --color=always --long --git --icons=always"
-alias lla="eza --color=always --long --git --icons=always -a"
+  alias ls="eza --color=always --long --git --icons=always --no-filesize --no-time --no-user --no-permissions"
+  alias ll="eza --color=always --long --git --icons=always"
+  alias lla="eza --color=always --long --git --icons=always -a"
 
-# ---- Zoxide (better cd) ----
-alias cd="z"
+  # ---- Zoxide (better cd) ----
+  alias cd="z"
+fi
 
 
 # Function defined in "functions"
