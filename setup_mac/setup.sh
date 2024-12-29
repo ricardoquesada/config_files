@@ -32,7 +32,10 @@ brew install thefuck
 # better cd
 brew install zoxide
 # fonts
-brew install font-meslo-lg-nerd-font 
+brew install font-meslo-lg-nerd-font
 
 # Installing dependencies using Homebrew
 brew install ripgrep the_silver_searcher perl universal-ctags
+
+# yazi and dependencies
+brew install yazi ffmpegthumbnailer ffmpeg sevenzip jq poppler imagemagick font-symbols-only-nerd-font

@@ -38,3 +38,6 @@ sudo pacman -S --needed gcc git make flex bison gperf python-pip cmake ninja cca
 
 # Printer
 sudo pacman -Syu system-config-printer hpoj
+
+# Yazi
+sudo pacman -Syu yazi chafa
