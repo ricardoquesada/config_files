@@ -10,20 +10,20 @@ alias alias_reload="source ~/progs/config_files/sh/alias"
 alias e=nvim
 
 # easier navigation
-alias ..="cd .."
-alias ...="cd ../.."
-alias ....="cd ../../.."
-alias .....="cd ../../../.."
-alias ~="cd ~"
+#alias ..="cd .."
+#alias ...="cd ../.."
+#alias ....="cd ../../.."
+#alias .....="cd ../../../.."
+#alias ~="cd ~"
 
 if [[ `hostname` != "penguin" ]]; then
 # ---- Eza (better ls) -----
-  alias ls="eza --color=always --long --git --icons=always --no-filesize --no-time --no-user --no-permissions"
-  alias ll="eza --color=always --long --git --icons=always"
-  alias lla="eza --color=always --long --git --icons=always -a"
+#  alias ls="eza --color=always --long --git --icons=always --no-filesize --no-time --no-user --no-permissions"
+#  alias ll="eza --color=always --long --git --icons=always"
+#  alias lla="eza --color=always --long --git --icons=always -a"
 
   # ---- Zoxide (better cd) ----
-  alias cd="z"
+#  alias cd="z"
 fi
 
 
@@ -31,8 +31,8 @@ fi
 alias ef='_open_files_for_editing'     # 'ef' opens given file(s) for editing
 
 # Find files
-alias ff="find | grep"
-alias ffi="find | grep -i"
+#alias ff="find | grep"
+#alias ffi="find | grep -i"
 
 if [[ `hostname` == "penguin" ]]; then
     alias nvim=~/Applications/nvim.appimage
