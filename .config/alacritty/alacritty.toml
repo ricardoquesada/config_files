@@ -8,7 +8,7 @@ TERM = "xterm-256color"
 #decorations = "Buttonless"
 
 [font]
-normal.family = "MesloLGS Nerd Font Mono"
+#normal.family = "MesloLGS Nerd Font Mono"
 #size = 9.0
 
 [general]
