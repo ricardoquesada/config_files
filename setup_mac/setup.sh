@@ -6,8 +6,12 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 brew install fzf
 brew install fd
 
+# compilers and tools
+brew install cmake clang-format ninja dfu-util meson
+
 brew install git tmux
-brew install cmake pkgconfig libusb
+brew install pkgconfig libusb
+
 
 # From here: https://www.josean.com/posts/7-amazing-cli-tools
 mkdir -p ~/src/misc/
@@ -39,3 +43,6 @@ brew install ripgrep the_silver_searcher perl universal-ctags
 
 # yazi and dependencies
 brew install yazi ffmpegthumbnailer ffmpeg sevenzip jq poppler imagemagick font-symbols-only-nerd-font
+
+# tools
+brew install htop
