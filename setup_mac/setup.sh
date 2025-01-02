@@ -45,4 +45,4 @@ brew install ripgrep the_silver_searcher perl universal-ctags
 brew install yazi ffmpegthumbnailer ffmpeg sevenzip jq poppler imagemagick font-symbols-only-nerd-font
 
 # tools
-brew install htop
+brew install htop pre-commit
