@@ -39,8 +39,8 @@ done
 tmux send-keys -t ${SESSION_NAME}:1.2 "cd ~/progs/bluepad32/" C-m
 tmux send-keys -t ${SESSION_NAME}:1.2 "export PLATFORM=unijoysticle" C-m
 
-#----- :2 ble
-tmux new-window -t ${SESSION_NAME}:2 -n "ble"
+#----- :2 vchar64
+tmux new-window -t ${SESSION_NAME}:2 -n "vchar64"
 tmux split-window -h -t ${SESSION_NAME}:2
 tmux split-window -v -t ${SESSION_NAME}:2.0
 
