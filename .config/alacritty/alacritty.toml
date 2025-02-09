@@ -9,7 +9,7 @@ TERM = "xterm-256color"
 
 [font]
 #normal.family = "MesloLGS Nerd Font Mono"
-#size = 9.0
+size = 9.0
 
 [general]
 import = [
