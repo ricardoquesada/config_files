@@ -62,7 +62,7 @@ export NDK_ROOT=$ANDROID_NDK_HOME
 #
 # Qt 6
 #
-export PATH=~/Qt/6.2.2/gcc_64/bin:~/Qt/Tools/QtCreator/bin:$PATH
+export PATH=$PATH:~/Qt/6.8.2/macos/bin
 
 
 #

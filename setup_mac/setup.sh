@@ -46,3 +46,6 @@ brew install yazi ffmpegthumbnailer ffmpeg sevenzip jq poppler imagemagick font-
 
 # tools
 brew install htop pre-commit
+
+# c64
+brew install tass64 cc65 acme nasm
