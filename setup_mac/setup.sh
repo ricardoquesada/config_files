@@ -49,3 +49,6 @@ brew install htop pre-commit
 
 # c64
 brew install tass64 cc65 acme nasm
+
+# Apps
+brew install inkscape inkstitch gimp
