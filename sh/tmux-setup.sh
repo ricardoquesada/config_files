@@ -69,14 +69,25 @@ do
 tmux send-keys -t ${SESSION_NAME}:4.$i "cd ~/progs/pixem" C-m
 done
 
-#----- :5 misc
-tmux new-window -t ${SESSION_NAME}:5 -n "misc"
+#----- :5 hugo
+tmux new-window -t ${SESSION_NAME}:5 -n "hugo"
 tmux split-window -h -t ${SESSION_NAME}:5
 tmux split-window -v -t ${SESSION_NAME}:5.0
 
 for i in {0..2}
 do
-tmux send-keys -t ${SESSION_NAME}:5.$i "cd ~/" C-m
+tmux send-keys -t ${SESSION_NAME}:5.$i "cd ~/progs/ricardoquesada.github.io/" C-m
+done
+tmux send-keys -t ${SESSION_NAME}:5.0 "hugo server --buildDrafts" C-m
+
+#----- :6 misc
+tmux new-window -t ${SESSION_NAME}:6 -n "misc"
+tmux split-window -h -t ${SESSION_NAME}:6
+tmux split-window -v -t ${SESSION_NAME}:6.0
+
+for i in {0..2}
+do
+tmux send-keys -t ${SESSION_NAME}:6.$i "cd ~/" C-m
 done
 
 #------
