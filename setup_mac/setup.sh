@@ -9,7 +9,7 @@ brew install fd
 # compilers and tools
 brew install cmake clang-format ninja dfu-util meson
 
-brew install git tmux
+brew install git tmux nvim
 brew install pkgconfig libusb
 
 
