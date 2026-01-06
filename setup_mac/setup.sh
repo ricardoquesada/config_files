@@ -7,7 +7,7 @@ brew install fzf
 brew install fd
 
 # compilers and tools
-brew install cmake clang-format ninja dfu-util meson cargo
+brew install cmake clang-format ninja dfu-util meson cargo flutter
 
 brew install git tmux nvim luarocks lazygit
 brew install pkgconfig libusb
