@@ -9,7 +9,7 @@ brew install fd
 # compilers and tools
 brew install cmake clang-format ninja dfu-util meson cargo flutter
 
-brew install git tmux nvim luarocks lazygit
+brew install git tmux nvim luarocks lazygit tree-sitter tree-sitter-cli
 brew install pkgconfig libusb
 
 # From here: https://www.josean.com/posts/7-amazing-cli-tools
