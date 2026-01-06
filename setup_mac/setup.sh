@@ -1,17 +1,16 @@
 # Install brew
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> ~/.zprofile
+echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >>~/.zprofile
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
 brew install fzf
 brew install fd
 
 # compilers and tools
-brew install cmake clang-format ninja dfu-util meson
+brew install cmake clang-format ninja dfu-util meson cargo
 
-brew install git tmux nvim
+brew install git tmux nvim luarocks lazygit
 brew install pkgconfig libusb
-
 
 # From here: https://www.josean.com/posts/7-amazing-cli-tools
 mkdir -p ~/src/misc/
