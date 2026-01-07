@@ -12,6 +12,9 @@ brew install cmake clang-format ninja dfu-util meson rust flutter cocoapods
 brew install git tmux nvim luarocks lazygit tree-sitter tree-sitter-cli
 brew install pkgconfig libusb
 
+# qt
+brew install qt qt-creator
+
 # From here: https://www.josean.com/posts/7-amazing-cli-tools
 mkdir -p ~/src/misc/
 cd ~/src/misc/
