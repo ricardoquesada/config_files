@@ -26,9 +26,11 @@ _open_files_for_editing() {
     echo "$FUNCNAME: package 'xdg-utils' or 'exo' is required." >&2
 }
 
-function open () {
-  xdg-open "$@">/dev/null 2>&1
-}
+if [[ "$OSTYPE" == "linux-gnu"* ]]; then
+    function open () {
+        xdg-open "$@">/dev/null 2>&1
+    }
+fi
 
 
 # create a new directory and enter it
