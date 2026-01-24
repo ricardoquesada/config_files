@@ -7,7 +7,7 @@ brew install fzf
 brew install fd
 
 # compilers and tools
-brew install cmake clang-format ninja dfu-util meson rust flutter cocoapods
+brew install cmake clang-format ninja dfu-util meson flutter cocoapods
 
 brew install git tmux nvim luarocks lazygit tree-sitter tree-sitter-cli
 brew install pkgconfig libusb
