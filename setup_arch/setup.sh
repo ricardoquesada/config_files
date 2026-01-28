@@ -1,6 +1,6 @@
 # compilers, terminal, etc
 sudo pacman -Syu base-devel --needed
-sudo pacman -Syu go rust nasm
+sudo pacman -Syu go nasm
 sudo pacman -Syu git mercurial meson autoconf automake ninja cmake make
 
 sudo pacman -Syu strace tmux wget mc meld

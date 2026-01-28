@@ -1,5 +1,5 @@
 # compilers, terminal, etc
-sudo apt install clang-format clang gdb gcc g++ llvm clangd golang rustc nasm lldb
+sudo apt install clang-format clang gdb gcc g++ llvm clangd golang nasm lldb
 sudo apt install git mercurial meson autoconf automake ninja-build make cmake
 sudo apt install strace neovim tmux wget curl mc ripgrep silversearcher-ag
 sudo apt install htop
@@ -27,7 +27,7 @@ sudo apt install blender openscad
 sudo apt install dos2unix xa65 libsdl2-dev libsdl2-image-dev libpng-dev libgtk-3-dev libglew-dev gawk flex bison libmpg123-dev
 
 # misc
-sudo apt install fonts-roboto evtest libjpeg-dev libcurl4-openssl-dev libminizip-dev minicom powerline tio
+sudo apt install fonts-roboto evtest libjpeg-dev libcurl4-openssl-dev libminizip-dev minicom powerline tio dysk
 
 # atool
 sudo apt install arj lzip pbzip2 bzip2 rar p7zip tar file lzip atool
