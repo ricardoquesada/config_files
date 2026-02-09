@@ -58,3 +58,6 @@ brew install inkscape inkstitch gimp
 # Hugo
 brew install hugo
 
+# tools
+brew install asciinema
+
