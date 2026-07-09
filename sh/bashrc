@@ -156,3 +156,6 @@ fi
 
 # KickAssembler
 export KICKASS_JAR=$HOME/bin/KickAssembler/KickAss.jar
+
+# UNP64
+export UNP64_PATH=$HOME/bin/unp64
