@@ -1,5 +1,5 @@
 # compilers, terminal, etc
-sudo apt install clang-format clang gdb gcc g++ llvm clangd golang nasm lldb
+sudo apt install clang-format clang gdb gcc g++ llvm clangd golang nasm rustup
 sudo apt install git mercurial meson autoconf automake ninja-build make cmake
 sudo apt install strace neovim tmux wget curl mc ripgrep silversearcher-ag
 sudo apt install htop
