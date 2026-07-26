@@ -22,7 +22,7 @@ discussions—into a comprehensive and highly detailed markdown artifact.
         without missing any nuance.
 3.  **Comply with AGENTS.md**:
     -   Save the artifact directly into the appropriate workspace directory
-        (`/google/src/cloud/ricardoq/dd/google3/experimental/users/ricardoq/g3doc/dd/<YYYY-MM-DD_HH-MM>_<task_name>/`). If
+        (`~/progs/config_files/agents/dd/<YYYY-MM-DD_HH-MM>_<task_name>/`). If
         `<task_name>` is not obvious, ask the user or create a descriptive
         folder name.
     -   Ensure the strict `AGENTS.md` header is placed at the top (exact

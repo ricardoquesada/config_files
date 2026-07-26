@@ -12,7 +12,7 @@ conflicts and fragmented plans, and propose a reorganization strategy.
 **PHASE 1: Read-Only Audit**
 
 1.  **Locate Artifacts**: Navigate to
-    `/google/src/cloud/ricardoq/dd/google3/experimental/users/ricardoq/g3doc/dd/<YYYY-MM-DD_HH-MM>_<task_name>/` (ask the
+    `~/progs/config_files/agents/dd/<YYYY-MM-DD_HH-MM>_<task_name>/` (ask the
     user for the task name if not provided or infer from recent folders).
 2.  **Scan Phase**: Identify all markdown files in the folder. **Explicitly
     ignore anything in the `_archive/` subfolder.** Read the files, tracking
@@ -35,6 +35,6 @@ conflicts and fragmented plans, and propose a reorganization strategy.
 2.  **Merge**: Extract useful content, synthesize it into a new, clearly-dated
     master artifact, and ensure it retains relevant prompt history.
 3.  **Archive**: Move the outdated or consumed artifacts into
-    `/google/src/cloud/ricardoq/dd/google3/experimental/users/ricardoq/g3doc/dd/<YYYY-MM-DD_HH-MM>_<task_name>/_archive/`
+    `~/progs_config/agetns/dd/<YYYY-MM-DD_HH-MM>_<task_name>/_archive/`
     (using the appropriate version control commands like `hg mv` or `hg
     addremove`). **NEVER permanently delete artifacts.**

@@ -14,7 +14,7 @@ subfolder using `hg mv`.
     -   If NO filename is provided, target the artifact(s) that you generated in
         your immediately preceding response.
 2.  **Locate Target**: Ensure the file exists in the current active directory
-    under `/google/src/cloud/ricardoq/dd/google3/experimental/users/ricardoq/g3doc/dd/<YYYY-MM-DD_HH-MM>_<task_name>/`.
+    under `~/progs/config_files/agents/dd/<YYYY-MM-DD_HH-MM>_<task_name>/`.
 3.  **Execute Archive**:
     -   Ensure the `_archive/` directory exists (create it if necessary).
     -   Use `hg mv` to move the target file into the `_archive/` directory.

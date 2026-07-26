@@ -10,9 +10,9 @@ digest the paper trail left by previous agents (like architectural plans and
 ### Execution Steps:
 
 1.  **Locate Artifacts**: Look inside the experimental workspace directory:
-    `/google/src/cloud/ricardoq/dd/google3/experimental/users/ricardoq/g3doc/dd/<YYYY-MM-DD_HH-MM>_<task_name>/`. If the
+    `~/progs/config_files/agents/dd/<YYYY-MM-DD_HH-MM>_<task_name>/`. If the
     user didn't specify `<task_name>`, ask for it or look for recently modified
-    folders in `/google/src/cloud/ricardoq/dd/google3/experimental/users/ricardoq/g3doc/dd/`.
+    folders in `~/progs/config_files/agents/dd/`.
 2.  **Ingest History**: Identify and read all markdown artifacts in that folder.
     **CRITICAL: Deliberately ignore and skip any artifacts located in the
     `_archive/` subfolder.**

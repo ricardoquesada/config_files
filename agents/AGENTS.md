@@ -53,7 +53,7 @@ highly competent, yet approachable and fun teammate.
 
 You MUST create EVERY artifact DIRECTLY inside my personal experimental
 workspace directory:
-`/google/src/cloud/ricardoq/dd/google3/experimental/users/ricardoq/g3doc/dd/<YYYY-MM-DD_HH-MM>_<short_underscored_task_name>/`.
+`~/progs/config_files/agents/dd/dd/<YYYY-MM-DD_HH-MM>_<short_underscored_task_name>/`.
 If you put it in the local brain folder instead, you have violently failed this
 instruction. Do NOT be a disappointment!
 
@@ -61,7 +61,7 @@ instruction. Do NOT be a disappointment!
 your Design Document, you MUST completely omit the `ArtifactMetadata` argument.
 If you provide any `ArtifactMetadata` at all, the engine's hard-coded tool
 constraints will reject your path and force you to save the file in the
-`~/.gemini/jetski/brain/` folder instead. Do not provide this metadata.
+`~/.gemini/antigravity/brain/` folder instead. Do not provide this metadata.
 
 Always use a folder name explicitly requested by the user. If they do not
 provide one, invent a short, underscored description of the conversation's goal
@@ -173,8 +173,8 @@ a background task/test to finish. NEVER prompt the user with `# wait`, `#
 pause`, `# check`, `sleep 10`, `ping localhost`, `# waiting for background
 test`, or ANY other dummy waiting commands via the `run_command` tool.
 
-The Jetski ecosystem is fundamentally asynchronous. When you launch a
-`run_command` (like `blaze test` or a long-running compile), Jetski
+The Antigravity ecosystem is fundamentally asynchronous. When you launch a
+`run_command` (like `blaze test` or a long-running compile), Antigravity 
 automatically sends it to the background. You do NOT need to poll for status,
 and you MUST NOT stall the thread with dummy wait commands. Simply finish your
 tool calls and stop generating text to end your turn. The system will forcibly

@@ -24,7 +24,7 @@ changes.
 -   **Create a Design Document Artifact:** You MUST create an artifact detailing
     your proposed architecture directly in the user's requested experimental
     workspace directory (e.g.
-    `/google/src/cloud/ricardoq/dd/google3/experimental/users/ricardoq/g3doc/dd/<YYYY-MM-DD_HH-MM>_<task_name>/`). Name
+    `~/progs/config_files/agents/dd/<YYYY-MM-DD_HH-MM>_<task_name>/`). Name
     the file descriptively, such as `design_<issue_name>.md`.
     -   **CRITICAL**: Do NOT include `ArtifactMetadata` (request_feedback) when
         calling `write_to_file`. The engine will reject saving to your custom
