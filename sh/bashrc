@@ -120,6 +120,7 @@ export PATH=~/bin/gcc-arm-none-eabi-10.3-2021.10/bin/:$PATH
 
 # PICO SDK
 export PICO_SDK_PATH=~/src/rpi/pico-sdk/
+export PICOTOOL_FETCH_FROM_GIT_PATH=~/src/rpi/picotool
 
 # VBCC / VASM / VLINK
 export VBCC=~/bin/vbcc
