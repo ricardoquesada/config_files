@@ -9,7 +9,7 @@ brew install fd
 # compilers and tools
 brew install cmake clang-format ninja dfu-util meson flutter cocoapods
 
-brew install git tmux nvim luarocks lazygit tree-sitter tree-sitter-cli
+brew install git tmux nvim luarocks lazygit tree-sitter tree-sitter-cli gh
 brew install pkgconfig libusb
 
 # qt
